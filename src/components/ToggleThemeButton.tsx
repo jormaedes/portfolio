@@ -18,7 +18,7 @@ export default function ThemeToggleButton() {
   return (
     <button
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="p-2 bg-gray-200 dark:bg-gray-800 rounded"
+      className="p-2 cursor-pointer"
     >
       {theme === "dark" ? <Sun /> : <Moon />}
     </button>
