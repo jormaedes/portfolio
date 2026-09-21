@@ -50,7 +50,7 @@ export default function Header() {
             </div>
 
             <nav className="container mx-auto flex flex-1 justify-center items-center px-6">
-                <ul className="flex space-x-4 py-2 px-4 bg-white/5 backdrop-blur-md shadow-lg rounded-full">
+                <ul className="flex space-x-4 py-2 px-4 bg-black/4 dark:bg-white/5 backdrop-blur-md shadow-lg rounded-full">
                     {navLinks.map((link) => (
                         <li key={link.name[lang]} className="text-black dark:text-white">
                             <Link href={link.href} className="hover:text-gray-400 ">
