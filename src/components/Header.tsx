@@ -97,7 +97,7 @@ export default function Header() {
                             <li ref={(element) => { itemRefs.current[navLinks.indexOf(link)] = element; }} key={link.name[lang]}>
                                 <Link
                                     href={link.href}
-                                    className={`relative flex min-h-10 items-center rounded-full px-5 text-sm font-medium transition-colors ${isActive
+                                    className={`relative flex min-h-10 items-center rounded-full px-5 text-sm hover:font-medium transition-colors ${isActive
                                         ? "text-black dark:text-white"
                                         : "text-black/80 hover:text-black dark:text-white/85 dark:hover:text-white"
                                         }`}
