@@ -138,7 +138,6 @@ export default function AboutSection() {
 
     return (
         <section
-            id="about"
             className="relative w-full py-16 sm:py-24 lg:py-28 px-4 sm:px-6 lg:px-8 bg-white dark:bg-[#0d0d12] transition-colors duration-500 overflow-hidden scroll-mt-20 pointer-events-auto"
         >
             {/* Brilhos sutis em degradê roxo de fundo */}
@@ -164,7 +163,7 @@ export default function AboutSection() {
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-violet-400 opacity-75" />
                                 <span className="relative inline-flex rounded-full h-2 w-2 bg-violet-600 dark:bg-violet-400" />
                             </span>
-                            <span className="text-xs font-bold tracking-wider uppercase">
+                            <span id="about" className="text-xs font-bold tracking-wider uppercase">
                                 {aboutContent.badge[lang]}
                             </span>
                         </div>
@@ -316,7 +315,7 @@ export default function AboutSection() {
                                     {portfolio.technologies.map((tech) => (
                                         <div
                                             key={tech.name}
-                                            className="flex h-10 w-10 items-center justify-center rounded-xl border border-zinc-200 bg-white/90 shadow-sm ring-1 ring-zinc-100 transition-transform duration-200 hover:-translate-y-0.5 dark:border-zinc-700 dark:bg-zinc-900/80 dark:ring-zinc-800"
+                                            className="cursor-pointer flex h-10 w-10 items-center justify-center rounded-xl border border-zinc-200 bg-white/90 shadow-sm ring-1 ring-zinc-100 transition-transform duration-200 hover:-translate-y-0.5 dark:border-zinc-700 dark:bg-zinc-800/80 dark:ring-zinc-800"
                                             title={tech.name}
                                         >
                                             <img
