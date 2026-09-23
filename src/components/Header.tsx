@@ -79,7 +79,7 @@ export default function Header() {
     }, [current, lang]);
 
     return (
-        <header className="container mx-auto flex justify-between items-center py-4 px-6">
+        <header className="z-2 container mx-auto flex justify-between items-center py-4 px-6">
             <div className="flex items-center space-x-2">
                 <div className="text-lg font-bold p-2 w-9 h-9 flex justify-center items-center rounded-full bg-gray-200 dark:bg-gray-700 dark:text-white">JL</div>
                 <span className="text-md text-black dark:text-white">Jormaedes Luís</span>
