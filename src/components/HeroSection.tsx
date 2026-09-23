@@ -38,7 +38,7 @@ export default function HeroSection() {
     const { lang } = useLangStore();
 
     return (
-        <section className="relative w-full h-screen h-dvh max-h-screen flex flex-col justify-between overflow-hidden bg-white dark:bg-[#0d0d12] transition-colors duration-500 z-0">
+        <section id="home" className="relative w-full h-screen h-dvh max-h-screen flex flex-col justify-between overflow-hidden bg-white dark:bg-[#0d0d12] transition-colors duration-500 z-0">
             <div
                 aria-hidden="true"
                 className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center"
