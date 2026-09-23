@@ -18,6 +18,14 @@ const navLinks = [
     },
     {
         name: {
+            pt: "Sobre",
+            en: "About"
+        },
+        href: "#about",
+        icon: User
+    },
+    {
+        name: {
             pt: "Serviços",
             en: "Services"
         },
@@ -31,14 +39,6 @@ const navLinks = [
         },
         href: "#projects",
         icon: CodeXml
-    },
-    {
-        name: {
-            pt: "Sobre",
-            en: "About"
-        },
-        href: "#about",
-        icon: User
     },
     {
         name: {
