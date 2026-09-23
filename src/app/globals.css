@@ -25,6 +25,11 @@
   --color-accent-purple: #4c1d95;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
 html,
 body {
   min-height: 100%;
