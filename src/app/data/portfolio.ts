@@ -250,5 +250,6 @@ export const portfolio: Portfolio = {
         { name: "C", icon: devicon("c") },
         { name: "C++", icon: devicon("cplusplus") },
         { name: "Git", icon: devicon("git") },
+        { name: "GitHub", icon: devicon("github") },
     ],
 };
