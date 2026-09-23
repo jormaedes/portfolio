@@ -89,7 +89,6 @@ export default function Header() {
     return (
         <header className="fixed top-0 left-0 right-0 z-50 pointer-events-none animate-slide-down">
             <div className="container mx-auto flex items-center justify-between py-2.5 sm:py-4 px-3 sm:px-6 pointer-events-auto">
-                {/* Logo / Nome do Autor - Oculto em telas menores para priorizar o menu e o botão de alternar tema */}
                 <div className="hidden sm:flex sm:flex-1 items-center space-x-2">
                     <div className="text-sm sm:text-base font-bold w-8 h-8 sm:w-9 sm:h-9 flex justify-center items-center rounded-full bg-accent-purple text-white shadow-sm shrink-0">
                         JL
@@ -157,7 +156,6 @@ export default function Header() {
                     </ul>
                 </nav>
 
-                {/* Ações Direitas: Idioma e Tema - Mantém o botão de tema sempre visível */}
                 <div className="flex sm:flex-1 items-center justify-end space-x-1 sm:space-x-2 shrink-0">
                     <ToggleLangButton />
                     <ThemeToggleButton />
