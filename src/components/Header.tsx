@@ -53,6 +53,7 @@ const navLinks = [
 export default function Header() {
     const { lang } = useLangStore();
     const [current, setCurrent] = useState<string | null>("#home");
+    const [hasScrolled, setHasScrolled] = useState(false);
     const navRef = useRef<HTMLUListElement>(null);
     const itemRefs = useRef<(HTMLLIElement | null)[]>([]);
     const [indicator, setIndicator] = useState({ left: 0, width: 0 });
@@ -102,11 +103,14 @@ export default function Header() {
         const sectionIds = ["contact", "projects", "services", "about", "home"];
 
         const handleScroll = () => {
+            const scrollY = window.scrollY;
+            setHasScrolled(scrollY > 8);
+
             // Se o scroll foi disparado pelo clique do usuário no nav, não interfere no indicador
             if (isClickScrollingRef.current) return;
 
-            const scrollPos = window.scrollY + 220;
-            if (window.scrollY < 120) {
+            const scrollPos = scrollY + 220;
+            if (scrollY < 120) {
                 setCurrent("#home");
                 return;
             }
@@ -165,8 +169,17 @@ export default function Header() {
     }, [current, lang]);
 
     return (
-        <header className="fixed top-0 left-0 right-0 z-50 pointer-events-none animate-slide-down">
-            <div className="container mx-auto flex items-center justify-between py-2.5 sm:py-4 px-3 sm:px-6 pointer-events-auto">
+        <>
+            <div
+                className={`pointer-events-none fixed inset-x-0 top-0 z-40 h-[76px] border-b border-black/5 transition-all duration-300 ${
+                    hasScrolled
+                        ? "bg-white/35 backdrop-blur-xl dark:bg-[#0d0d12]/35"
+                        : "bg-transparent backdrop-blur-none"
+                }`}
+            />
+
+            <header className="fixed top-0 left-0 right-0 z-50 pointer-events-none animate-slide-down">
+                <div className="container mx-auto flex items-center justify-between py-2.5 sm:py-4 px-3 sm:px-6 pointer-events-auto">
                 {/* Logo / Nome do Autor - Oculto em telas menores para priorizar o menu e o botão de alternar tema */}
                 <div className="hidden sm:flex sm:flex-1 items-center space-x-2">
                     <div className="text-sm sm:text-base font-bold w-8 h-8 sm:w-9 sm:h-9 flex justify-center items-center rounded-full bg-accent-purple text-white shadow-sm shrink-0">
@@ -253,5 +266,6 @@ export default function Header() {
                 </div>
             </div>
         </header>
+        </>
     );
 }
