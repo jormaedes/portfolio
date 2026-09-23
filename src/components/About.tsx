@@ -13,10 +13,6 @@ import {
 import { portfolio } from "@/app/data/portfolio";
 import Link from "next/link";
 
-/**
- * Ícones SVG oficiais de marca para GitHub e LinkedIn
- * (mantém estilo vetorizado nítido e sem dependências externas)
- */
 function GithubIcon({ className = "w-4 h-4" }: { className?: string }) {
     return (
         <svg
@@ -138,7 +134,7 @@ export default function AboutSection() {
 
     return (
         <section
-            className="relative w-full py-16 sm:py-24 lg:py-28 px-4 sm:px-6 lg:px-8 bg-white dark:bg-[#0d0d12] transition-colors duration-500 overflow-hidden scroll-mt-20 pointer-events-auto"
+            className="relative w-full py-32 px-4 sm:px-6 lg:px-8 bg-white dark:bg-[#0d0d12] transition-colors duration-500 overflow-hidden scroll-mt-20 pointer-events-auto"
         >
             {/* Brilhos sutis em degradê roxo de fundo */}
             <div
@@ -152,9 +148,9 @@ export default function AboutSection() {
 
             <div className="container mx-auto max-w-6xl">
                 {/* -------------------------------------------------------------
-                    CARD CONTAINER PRINCIPAL (Glassmorphism inspirado nas referências)
+                    CARD CONTAINER PRINCIPAL
                     ------------------------------------------------------------- */}
-                <div className="relative rounded-3xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/80 dark:bg-zinc-900/50 backdrop-blur-xl p-6 sm:p-10 lg:p-12 shadow-xl shadow-violet-950/5 dark:shadow-violet-950/20">
+                <div className="relative rounded-lg sm:rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/80 dark:bg-zinc-900/50 backdrop-blur-xl p-6 sm:p-10 lg:p-12 shadow-xl shadow-violet-950/5 dark:shadow-violet-950/20">
                     {/* Linha Superior: Badge e Tagline */}
                     <div className="flex items-center justify-between gap-4 mb-6 sm:mb-8">
                         {/* Badge Roxo Elegante */}
@@ -315,7 +311,7 @@ export default function AboutSection() {
                                     {portfolio.technologies.map((tech) => (
                                         <div
                                             key={tech.name}
-                                            className="cursor-pointer flex h-10 w-10 items-center justify-center rounded-xl border border-zinc-200 bg-white/90 shadow-sm ring-1 ring-zinc-100 transition-transform duration-200 hover:-translate-y-0.5 dark:border-zinc-700 dark:bg-zinc-800/80 dark:ring-zinc-800"
+                                            className="cursor-pointer flex h-10 w-10 items-center justify-center rounded-lg border border-zinc-200 bg-white/90 transition-transform duration-200 hover:-translate-y-0.5 dark:border-zinc-700 dark:bg-zinc-800/80 dark:ring-zinc-800"
                                             title={tech.name}
                                         >
                                             <img
@@ -339,9 +335,9 @@ export default function AboutSection() {
                         --------------------------------------------------------- */}
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-4 lg:gap-6 mt-10 sm:mt-12 pt-8 sm:pt-10 border-t border-zinc-200/80 dark:border-zinc-800/80">
                         {/* Card 1: Anos de Experiência */}
-                        <div className="group rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-50/70 dark:bg-zinc-800/40 p-5 sm:p-6 transition-all duration-300 hover:border-violet-500/50 hover:bg-violet-50/30 dark:hover:bg-violet-950/20">
+                        <div className="group rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-50/70 dark:bg-zinc-800/40 p-5 sm:p-6 transition-all duration-300 hover:border-violet-500/50 hover:bg-violet-50/30 dark:hover:bg-violet-950/20">
                             <div className="flex items-center justify-between mb-3">
-                                <div className="w-10 h-10 rounded-xl bg-violet-500/10 dark:bg-violet-500/15 flex items-center justify-center text-violet-600 dark:text-violet-400">
+                                <div className="w-10 h-10 rounded-lg bg-violet-500/10 dark:bg-violet-500/15 flex items-center justify-center text-violet-600 dark:text-violet-400">
                                     <CalendarCheck2 size={20} />
                                 </div>
                                 <span className="text-3xl sm:text-4xl font-black text-zinc-950 dark:text-white tracking-tight">
@@ -357,9 +353,9 @@ export default function AboutSection() {
                         </div>
 
                         {/* Card 2: Projetos Construídos (Destaque visual invertido / alto contraste como Imagem 1) */}
-                        <div className="group rounded-2xl border border-zinc-950 dark:border-zinc-700 bg-zinc-950 dark:bg-zinc-800/90 text-white p-5 sm:p-6 shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-violet-900/20">
+                        <div className="group rounded-xl border border-zinc-950 dark:border-zinc-700 bg-zinc-950 dark:bg-zinc-800/90 text-white p-5 sm:p-6 shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-violet-900/20">
                             <div className="flex items-center justify-between mb-3">
-                                <div className="w-10 h-10 rounded-xl bg-white/10 dark:bg-white/15 flex items-center justify-center text-violet-300 dark:text-violet-300">
+                                <div className="w-10 h-10 rounded-lg bg-white/10 dark:bg-white/15 flex items-center justify-center text-violet-300 dark:text-violet-300">
                                     <CodeXml size={20} />
                                 </div>
                                 <span className="text-3xl sm:text-4xl font-black text-white tracking-tight">
@@ -375,9 +371,9 @@ export default function AboutSection() {
                         </div>
 
                         {/* Card 3: Dedicação & Clean Code */}
-                        <div className="group rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-50/70 dark:bg-zinc-800/40 p-5 sm:p-6 transition-all duration-300 hover:border-violet-500/50 hover:bg-violet-50/30 dark:hover:bg-violet-950/20">
+                        <div className="group rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-50/70 dark:bg-zinc-800/40 p-5 sm:p-6 transition-all duration-300 hover:border-violet-500/50 hover:bg-violet-50/30 dark:hover:bg-violet-950/20">
                             <div className="flex items-center justify-between mb-3">
-                                <div className="w-10 h-10 rounded-xl bg-violet-500/10 dark:bg-violet-500/15 flex items-center justify-center text-violet-600 dark:text-violet-400">
+                                <div className="w-10 h-10 rounded-lg bg-violet-500/10 dark:bg-violet-500/15 flex items-center justify-center text-violet-600 dark:text-violet-400">
                                     <Goal size={20} />
                                 </div>
                                 <span className="text-3xl sm:text-4xl font-black text-zinc-950 dark:text-white tracking-tight">
