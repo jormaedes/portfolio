@@ -53,7 +53,7 @@ export const portfolio: Portfolio = {
 
     socialLinks: {
         github: "https://github.com/jormaedes",
-        linkedin: "https://www.linkedin.com/in/jormaedes-luis",
+        linkedin: "https://www.linkedin.com/in/jormaedes",
     },
 
     services: [
