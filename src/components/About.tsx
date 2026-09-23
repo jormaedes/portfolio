@@ -134,7 +134,7 @@ export default function AboutSection() {
 
     return (
         <section
-            className="relative w-full py-32 px-4 sm:px-6 lg:px-8 bg-white dark:bg-[#0d0d12] transition-colors duration-500 overflow-hidden scroll-mt-20 pointer-events-auto"
+            className="relative w-full py-8 sm:py-24 px-4 sm:px-6 lg:px-8 bg-white dark:bg-[#0d0d12] transition-colors duration-500 overflow-hidden scroll-mt-20 pointer-events-auto"
         >
             {/* Brilhos sutis em degradê roxo de fundo */}
             <div
