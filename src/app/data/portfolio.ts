@@ -52,8 +52,8 @@ export const portfolio: Portfolio = {
                 en: "Websites and landing pages",
             },
             description: {
-                pt: "Criação de sites responsivos e rápidos com Next.js, React e Tailwind CSS, prontos para publicar no Vercel.",
-                en: "Responsive, fast websites built with Next.js, React and Tailwind CSS, ready to deploy on Vercel.",
+                pt: "Criação de sites responsivos e rápidos com Next.js, React e Tailwind CSS, prontos para publicar.",
+                en: "Responsive, fast websites built with Next.js, React and Tailwind CSS, ready to deploy.",
             },
         },
         {
