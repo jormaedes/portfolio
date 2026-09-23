@@ -3,9 +3,9 @@ import HeroSection from "@/components/HeroSection";
 
 export default function Home() {
   return (
-    <main className="relative w-full h-screen h-dvh overflow-hidden">
-      <HeroSection />
+    <main className="relative w-full min-h-screen">
       <Header />
+      <HeroSection />
     </main>
   );
 }
