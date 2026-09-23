@@ -26,9 +26,15 @@ export type Technology = {
     icon: string;
 };
 
+export type SocialLinks = {
+    github: string;
+    linkedin: string;
+};
+
 export type Portfolio = {
     aboutMe: Localized;
     yearsOfExperience: number;
+    socialLinks: SocialLinks;
     services: Service[];
     projects: Project[];
     technologies: Technology[];
@@ -44,6 +50,11 @@ export const portfolio: Portfolio = {
     },
 
     yearsOfExperience: 2,
+
+    socialLinks: {
+        github: "https://github.com/jormaedes",
+        linkedin: "https://www.linkedin.com/in/jormaedes-luis",
+    },
 
     services: [
         {
