@@ -29,6 +29,9 @@ export type Technology = {
 export type SocialLinks = {
     github: string;
     linkedin: string;
+    email: string;
+    whatsapp: string;
+    discord: string;
 };
 
 export type Portfolio = {
@@ -54,6 +57,9 @@ export const portfolio: Portfolio = {
     socialLinks: {
         github: "https://github.com/jormaedes",
         linkedin: "https://www.linkedin.com/in/jormaedes",
+        email: 'jormahed@gmail.com',
+        whatsapp: '+244 940 817 186',
+        discord: 'https://discord.com/channels/jormaedes'
     },
 
     services: [
