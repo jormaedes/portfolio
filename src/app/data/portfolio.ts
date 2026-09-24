@@ -140,8 +140,8 @@ export const portfolio: Portfolio = {
             ],
             links: [
                 { label: "Live: Reader", url: "https://blog-client-three.vercel.app" },
-                { label: "Live: Admin", url: "https://blog-admin-sand-omega.vercel.app" },
                 { label: "GitHub: API", url: "https://github.com/jormaedes/blog-api" },
+                { label: "Live: Admin", url: "https://blog-admin-sand-omega.vercel.app" },
                 { label: "GitHub: Admin", url: "https://github.com/jormaedes/blog-admin" },
                 { label: "GitHub: Reader", url: "https://github.com/jormaedes/blog-client" }
             ],
