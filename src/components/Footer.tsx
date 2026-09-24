@@ -101,7 +101,7 @@ export default function Footer() {
 
                     <div className="hidden sm:flex sm:flex-1 items-center space-x-2">
                         <div className="text-sm sm:text-base font-bold w-8 h-8 sm:w-9 sm:h-9 flex justify-center items-center rounded-full bg-accent-purple text-white shadow-sm shrink-0">
-                            {portfolio.name.slice(0, 2).toUpperCase()}
+                            {portfolio.name.split(' ').map(n => n[0].toUpperCase()).join("")}
                         </div>
                         <span className="hidden md:inline text-sm font-semibold text-white whitespace-nowrap">
                             {portfolio.name}
@@ -136,7 +136,7 @@ export default function Footer() {
                             aria-label="WhatsApp"
                             className="group text-white/75 hover:text-white transition-colors"
                         >
-                            <WhatsappIcon className="w-9 h-9 transition-transform duration-300 group-hover:scale-110" />
+                            <WhatsappIcon className="w-7 h-7 transition-transform duration-300 group-hover:scale-110" />
                         </Link>
                         
                         <Link

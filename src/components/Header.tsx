@@ -184,7 +184,7 @@ export default function Header() {
                 {/* Logo / Nome do Autor - Oculto em telas menores para priorizar o menu e o botão de alternar tema */}
                 <div className="hidden sm:flex sm:flex-1 items-center space-x-2">
                     <div className="text-sm sm:text-base font-bold w-8 h-8 sm:w-9 sm:h-9 flex justify-center items-center rounded-full bg-accent-purple text-white shadow-sm shrink-0">
-                        JL
+                        {portfolio.name.split(' ').map(n => n[0].toUpperCase()).join("")}
                     </div>
                     <span className="hidden md:inline text-sm font-semibold text-black dark:text-white whitespace-nowrap">
                         {portfolio.name}
