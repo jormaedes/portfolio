@@ -250,6 +250,7 @@ export const portfolio: Portfolio = {
         { name: "JavaScript", icon: devicon("javascript") },
         { name: "TypeScript", icon: devicon("typescript") },
         { name: "React", icon: devicon("react") },
+        { name: "Zustand", icon: devicon("zustand") },
         { name: "Next.js", icon: devicon("nextjs") },
         { name: "Node.js", icon: devicon("nodejs") },
         { name: "Express", icon: devicon("express") },
