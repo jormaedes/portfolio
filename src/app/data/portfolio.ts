@@ -54,7 +54,7 @@ export const portfolio: Portfolio = {
         en: "I'm a junior full stack developer based in Luanda, Angola. I study Computer Science at Universidade Katyavala Bwila and programming at 42 Luanda, where I focus on systems programming in C and C++. Alongside that, I follow The Odin Project's Full Stack JavaScript curriculum, building complete applications with Node.js, PostgreSQL, React and Next.js. I have professional frontend experience at Hidrotap and I'm looking for opportunities, local or remote, to grow within a development team.",
     },
 
-    yearsOfExperience: 2,
+    yearsOfExperience: 3,
 
     socialLinks: {
         github: "https://github.com/jormaedes",
