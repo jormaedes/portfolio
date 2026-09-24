@@ -1,6 +1,6 @@
 "use client";
 
-import { portfolio, Portfolio } from "@/app/data/portfolio";
+import { portfolio } from "@/app/data/portfolio";
 import useLangStore from "@/app/store/lang";
 import { GlobeCode } from "lucide-react";
 
