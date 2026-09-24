@@ -116,7 +116,7 @@ export default function HeroSection() {
                         </Link>
 
                         <Link
-                            href="/cv_jormaedes_pt.pdf"
+                            href={`/cvs/cv_jormaedes_${lang}.pdf`}
                             download="cv_jormaedes"
                             className="group inline-flex items-center gap-2 rounded-full border border-zinc-300 dark:border-zinc-700 bg-white/70 dark:bg-zinc-900/70 text-zinc-900 dark:text-zinc-100 px-4 py-2.5 xl:py-3 text-sm font-medium backdrop-blur-md transition-all duration-300 hover:border-violet-500/60 hover:text-violet-600 dark:hover:text-violet-300 hover:bg-violet-50/50 dark:hover:bg-violet-950/30 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
                         >
