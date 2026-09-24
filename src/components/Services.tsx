@@ -23,7 +23,7 @@ export default function Services() {
                 <div className="grid grid-cols-1 sm:grid-cols-4 gap-3.5 sm:gap-4 lg:gap-6 mt-10 sm:mt-12 pt-8 sm:pt-10 border-t border-zinc-200/80 dark:border-zinc-800/80">
 
                     {portfolio.services.map((service, index) =>
-                        <div key={index} className="group rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-50/70 dark:bg-zinc-800/40 p-5 sm:p-6 transition-all duration-300 hover:border-violet-500/50 hover:bg-violet-50/30 dark:hover:bg-violet-950/20">
+                        <div key={index} style={{ animationDelay: `${index * 90}ms` }} className="group animate-slide-up rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-50/70 dark:bg-zinc-800/40 p-5 sm:p-6 transition-all duration-300 hover:-translate-y-1 hover:border-violet-500/50 hover:bg-violet-50/30 hover:shadow-lg hover:shadow-violet-950/5 dark:hover:bg-violet-950/20">
                             <div className="flex items-center justify-between mb-3">
                                 <div className="w-10 h-10 rounded-lg bg-violet-500/10 dark:bg-violet-500/15 flex items-center justify-center text-violet-600 dark:text-violet-400">
                                     <GlobeCode size={20} />

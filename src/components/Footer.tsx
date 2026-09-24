@@ -3,6 +3,7 @@
 import { portfolio } from "@/app/data/portfolio";
 import Link from "next/link";
 import useLangStore from "@/app/store/lang";
+import { Mail } from "lucide-react";
 
 
 const navLinks = [
@@ -73,6 +74,22 @@ function LinkedinIcon({ className = "w-4 h-4" }: { className?: string }) {
     );
 }
 
+function WhatsappIcon({ className = "w-4 h-4" }: { className?: string }) {
+    return (
+        <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+            <path d="M20.52 3.48A11.86 11.86 0 0 0 12.08 0C5.52 0 .18 5.34.18 11.9c0 2.1.55 4.15 1.6 5.96L.08 24l6.28-1.65a11.9 11.9 0 0 0 5.72 1.46h.01c6.56 0 11.9-5.34 11.9-11.9 0-3.18-1.24-6.17-3.47-8.43Zm-8.44 18.3h-.01a9.89 9.89 0 0 1-5.04-1.38l-.36-.21-3.73.98 1-3.64-.23-.37a9.89 9.89 0 1 1 8.37 4.62Zm5.43-7.43c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-1.76-.88-2.91-1.57-4.07-3.56-.31-.53.31-.49.89-1.63.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.08 4.49 1.89.82 2.63.89 3.57.75.57-.09 1.76-.72 2-1.42.25-.69.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35Z" />
+        </svg>
+    );
+}
+
+function DiscordIcon({ className = "w-4 h-4" }: { className?: string }) {
+    return (
+        <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+            <path d="M19.54 5.27A16.9 16.9 0 0 0 15.42 4l-.5 1.02a15.2 15.2 0 0 0-5.84 0L8.58 4a16.9 16.9 0 0 0-4.12 1.27C1.85 9.1 1.14 12.84 1.5 16.53a16.8 16.8 0 0 0 5.07 2.55l1.23-1.68c-.68-.25-1.33-.56-1.94-.92l.47-.36c3.74 1.73 8.02 1.73 11.72 0l.47.36c-.61.36-1.26.67-1.94.92l1.23 1.68a16.8 16.8 0 0 0 5.07-2.55c.42-4.28-.72-7.98-3.34-11.26ZM8.73 14.5c-1.1 0-2-.99-2-2.21s.88-2.21 2-2.21c1.13 0 2.02.99 2 2.21 0 1.22-.88 2.21-2 2.21Zm6.54 0c-1.1 0-2-.99-2-2.21s.88-2.21 2-2.21c1.13 0 2.02.99 2 2.21 0 1.22-.88 2.21-2 2.21Z" />
+        </svg>
+    );
+}
+
 export default function Footer() {
 
     const { lang } = useLangStore();
@@ -84,10 +101,10 @@ export default function Footer() {
 
                     <div className="hidden sm:flex sm:flex-1 items-center space-x-2">
                         <div className="text-sm sm:text-base font-bold w-8 h-8 sm:w-9 sm:h-9 flex justify-center items-center rounded-full bg-accent-purple text-white shadow-sm shrink-0">
-                            JL
+                            {portfolio.name.slice(0, 2).toUpperCase()}
                         </div>
-                        <span className="hidden md:inline text-sm font-semibold text-black dark:text-white whitespace-nowrap">
-                            Jormaedes Luís
+                        <span className="hidden md:inline text-sm font-semibold text-white whitespace-nowrap">
+                            {portfolio.name}
                         </span>
                     </div>
 
@@ -95,6 +112,9 @@ export default function Footer() {
                         <Link
                             href={portfolio.socialLinks.linkedin}
                             target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="LinkedIn"
+                            className="group text-white/75 hover:text-white transition-colors"
                         >
                             <LinkedinIcon className="w-9 h-9 transition-transform duration-300 group-hover:scale-110" />
                         </Link>
@@ -102,6 +122,9 @@ export default function Footer() {
                         <Link
                             href={portfolio.socialLinks.github}
                             target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="GitHub"
+                            className="group text-white/75 hover:text-white transition-colors"
                         >
                             <GithubIcon className="w-9 h-9 transition-transform duration-300 group-hover:scale-110" />
                         </Link>
@@ -109,33 +132,45 @@ export default function Footer() {
                         <Link
                             href={portfolio.socialLinks.whatsapp}
                             target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="WhatsApp"
+                            className="group text-white/75 hover:text-white transition-colors"
                         >
-                        {/* Aqui vai o logo do whatsapp */}
-                            <GithubIcon className="w-9 h-9 transition-transform duration-300 group-hover:scale-110" />
+                            <WhatsappIcon className="w-9 h-9 transition-transform duration-300 group-hover:scale-110" />
                         </Link>
                         
                         <Link
                             href={portfolio.socialLinks.discord}
                             target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Discord"
+                            className="group text-white/75 hover:text-white transition-colors"
                         >
-                            {/* Aqui vai o logo do discord */}
-                            <GithubIcon className="w-9 h-9 transition-transform duration-300 group-hover:scale-110" />
+                            <DiscordIcon className="w-9 h-9 transition-transform duration-300 group-hover:scale-110" />
+                        </Link>
+
+                        <Link
+                            href={`mailto:${portfolio.socialLinks.email}`}
+                            aria-label="Email"
+                            className="group text-white/75 hover:text-white transition-colors"
+                        >
+                            <Mail className="w-9 h-9 p-1 transition-transform duration-300 group-hover:scale-110" />
                         </Link>
                     </div>
                 </div>
 
-                <div className="border-t flex justify-between items-end">
+                <div className="mt-3 flex flex-col gap-3 border-t border-white/15 pt-3 text-xs text-white/60 sm:flex-row sm:items-end sm:justify-between">
                     <div className="flex flex-col">
                         <span>
-                            &copy; 2026 Jormaedes Luís
+                            &copy; 2026 {portfolio.name}
                         </span>
                         <span>
-                            All rights reserved
+                            {lang === "pt" ? "Todos os direitos reservados" : "All rights reserved"}
                         </span>
                     </div>
-                    <div className="flex items-center gap-1">
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 sm:justify-end">
                         {navLinks.map((nav)=>
-                            <Link key={nav.href} href={nav.href}>
+                            <Link key={nav.href} href={nav.href} className="text-white/60 transition-colors hover:text-white">
                                 {nav.name[lang]}
                             </Link>
                         )}

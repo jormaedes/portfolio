@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Download, ArrowUpRight } from "lucide-react";
 import useLangStore from "@/app/store/lang";
+import { portfolio } from "@/app/data/portfolio";
 
 const HERO_IMAGE = "/photo.png";
 
@@ -16,8 +17,6 @@ const heroContent = {
         en: "I AM",
         pt: "EU SOU",
     },
-    nameFirst: "JORMAEDES",
-    nameLast: "LUÍS",
     roleFirst: "FULL STACK",
     roleLast: "DEVELOPER",
     specialization: {
@@ -78,7 +77,7 @@ export default function HeroSection() {
                     <div className="relative w-full max-w-[260px] sm:max-w-[340px] md:max-w-[420px] lg:max-w-[480px] xl:max-w-[540px] h-full flex items-end justify-center">
                         <Image
                             src={HERO_IMAGE}
-                            alt="Jormaedes Luís"
+                            alt={portfolio.name}
                             fill
                             priority
                             loading="eager"
@@ -100,9 +99,7 @@ export default function HeroSection() {
                             {heroContent.iam[lang]}
                         </p>
                         <h1 className="text-5xl xl:text-7xl font-black tracking-tighter uppercase leading-[0.88] text-zinc-950 dark:text-white">
-                            {heroContent.nameFirst}
-                            <br />
-                            {heroContent.nameLast}
+                            {portfolio.name.toUpperCase()}
                         </h1>
                     </div>
 
@@ -146,7 +143,7 @@ export default function HeroSection() {
                             {heroContent.iam[lang]}
                         </p>
                         <h1 className="text-xl sm:text-3xl font-black tracking-tight uppercase leading-[0.9] text-zinc-950 dark:text-white">
-                            {heroContent.nameFirst} {heroContent.nameLast}
+                            {portfolio.name.toUpperCase()}
                         </h1>
 
                         <div className="flex flex-wrap items-center gap-2 pt-1.5">

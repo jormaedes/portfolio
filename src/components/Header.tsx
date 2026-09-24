@@ -3,6 +3,7 @@
 import useLangStore from "@/app/store/lang";
 import ToggleLangButton from "./ToggleLangButton";
 import ThemeToggleButton from "./ToggleThemeButton";
+import { portfolio } from "@/app/data/portfolio";
 import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
 import { Home, User, Briefcase, CodeXml, Mail } from "lucide-react";
@@ -186,7 +187,7 @@ export default function Header() {
                         JL
                     </div>
                     <span className="hidden md:inline text-sm font-semibold text-black dark:text-white whitespace-nowrap">
-                        Jormaedes Luís
+                        {portfolio.name}
                     </span>
                 </div>
 

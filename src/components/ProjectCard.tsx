@@ -27,8 +27,8 @@ export default function ProjectCard(project: Project) {
     const { lang } = useLangStore();
     return (
         <div className="group rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-50/70 dark:bg-zinc-800/40 p-5 sm:p-6 transition-all duration-300 hover:border-violet-500/50 hover:bg-violet-50/30 dark:hover:bg-violet-950/20">
-            <div className="flex items-center justify-between mb-3">
-                <img className="rounded-md" src={project.imageSrc} alt={project.name[lang]} />
+            <div className="mb-4 overflow-hidden rounded-md bg-zinc-200 dark:bg-zinc-900">
+                <img className="aspect-video w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" src={project.imageSrc} alt={project.name[lang]} />
             </div>
             <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-100 uppercase tracking-wide">
                 {project.name[lang]}
