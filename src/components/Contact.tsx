@@ -9,8 +9,8 @@ import { Heading1 } from "lucide-react";
 
 const contactContent = {
     title: {
-        pt: 'CONTACTO',
-        en: 'CONTACT',
+        pt: 'Entre em contato comigo',
+        en: 'Get in touch with me',
     },
     content_1: {
         pt: "Você tem um projeto em mente? Vamos criar algo incrível juntos.",
@@ -109,7 +109,6 @@ async function handleSubmit(event: FormEvent<HTMLFormElement>) {
                         </div>
 
                     </div>
-
                 </div>
             </div>
         </section>
