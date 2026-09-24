@@ -48,7 +48,7 @@ const devicon = (name: string, variant: "original" | "plain" = "original") =>
     `https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${name}/${name}-${variant}.svg`;
 
 export const portfolio: Portfolio = {
-    name: "Jormaedes",
+    name: "Jormaedes Luís",
     aboutMe: {
         pt: "Sou programador full stack júnior, baseado em Luanda. Estudo Ciências da Computação na Universidade Katyavala Bwila e programação na 42 Luanda, com foco em programação de sistemas (C e C++). Em paralelo, sigo o currículo de JavaScript Full Stack do The Odin Project, onde construo aplicações completas com Node.js, PostgreSQL, React e Next.js. Tenho experiência profissional em desenvolvimento frontend na Hidrotap e procuro oportunidades, locais ou remotas, para crescer numa equipa de desenvolvimento.",
         en: "I'm a junior full stack developer based in Luanda, Angola. I study Computer Science at Universidade Katyavala Bwila and programming at 42 Luanda, where I focus on systems programming in C and C++. Alongside that, I follow The Odin Project's Full Stack JavaScript curriculum, building complete applications with Node.js, PostgreSQL, React and Next.js. I have professional frontend experience at Hidrotap and I'm looking for opportunities, local or remote, to grow within a development team.",
