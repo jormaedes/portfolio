@@ -2,7 +2,7 @@
 
 import { portfolio } from "@/app/data/portfolio";
 import useLangStore from "@/app/store/lang";
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { sendContactMessage } from "@/actions/contact";
 import { ArrowUpRight, Mail } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
@@ -49,23 +49,61 @@ export default function Contact() {
     const [message, setMessage] = useState('');
     const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
-async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-
-    setStatus("loading");
-
-    try {
-        const result = await sendContactMessage(name, email, message);
-
-        setStatus(result.success ? "success" : "error");
-    } catch (error) {
-        setStatus("error");
+    function clearStatus() {
+        setStatus('idle');
     }
-}
+
+    useEffect(() => {
+        if (status === "idle" || status === "loading") return;
+
+        const timeout = window.setTimeout(clearStatus, 5000);
+        return () => window.clearTimeout(timeout);
+    }, [status]);
+
+    async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+        event.preventDefault();
+
+        setStatus("loading");
+
+        try {
+            const result = await sendContactMessage(name, email, message);
+
+            setStatus(result.success ? "success" : "error");
+            if (result.success) {
+                setName('');
+                setEmail('');
+                setMessage('');
+            }
+        } catch (error) {
+            setStatus("error");
+        }
+    }
 
     return (
         <section className="w-full py-8 px-4 sm:px-6 lg:px-8 bg-white dark:bg-[#0d0d12] transition-colors duration-500 overflow-hidden scroll-mt-20 pointer-events-auto">
             <div className="container mx-auto max-w-6xl">
+                {status !== "idle" && status !== "loading" && (
+                    <div
+                        role="status"
+                        aria-live="polite"
+                        className={`fixed right-4 top-24 z-50 max-w-[calc(100%-2rem)] rounded-xl border px-5 py-4 text-sm font-semibold shadow-lg sm:right-6 sm:max-w-md ${status === "success"
+                                ? "border-emerald-200 bg-emerald-50 text-emerald-800 dark:border-emerald-800 dark:bg-emerald-950/90 dark:text-emerald-200"
+                                : "border-red-200 bg-red-50 text-red-800 dark:border-red-800 dark:bg-red-950/90 dark:text-red-200"
+                            }`}
+                    >
+                        {status === "success"
+                            ? contactContent.form.success[lang]
+                            : contactContent.form.error[lang]}
+                        <button
+                            type="button"
+                            onClick={clearStatus}
+                            aria-label={lang === "pt" ? "Fechar aviso" : "Close notification"}
+                            className="ml-4 text-lg leading-none opacity-70 transition-opacity hover:opacity-100"
+                        >
+                            ×
+                        </button>
+                    </div>
+                )}
                 <h2 id="contact"> {contactContent.title[lang]} </h2>
                 <div className="mt-10 grid gap-8 border-t border-zinc-200/80 pt-8 dark:border-zinc-800/80 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
                     <ScrollReveal className="animate-slide-left">
@@ -88,67 +126,65 @@ async function handleSubmit(event: FormEvent<HTMLFormElement>) {
                     </ScrollReveal>
 
                     <ScrollReveal className="animate-slide-right space-y-4 rounded-xl border border-zinc-200/80 bg-zinc-50/70 p-5 dark:border-zinc-800/80 dark:bg-zinc-800/40 sm:p-6">
-                        <div className="grid gap-4 sm:grid-cols-2">
-                            <div>
-                                <label htmlFor="name" className="mb-1.5 block text-xs font-semibold uppercase tracking-wide text-zinc-700 dark:text-zinc-300">
-                                    {contactContent.form.name[lang]}
-                                </label>
-                                <input
-                                    type="text"
-                                    name="name"
-                                    id="name"
-                                    placeholder={contactContent.form.namePlaceholder[lang]}
-                                    required
-                                    value={name}
-                                    onChange={(event) => setName(event.target.value)}
-                                    className="w-full rounded-lg border border-zinc-200 bg-white px-3.5 py-3 text-sm text-zinc-900 outline-none transition-colors placeholder:text-zinc-400 focus:border-violet-500 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:placeholder:text-zinc-500"
-                                />
+                        <form onSubmit={handleSubmit}>
+                            <div className="grid gap-4 sm:grid-cols-2">
+                                <div>
+                                    <label htmlFor="name" className="mb-1.5 block text-xs font-semibold uppercase tracking-wide text-zinc-700 dark:text-zinc-300">
+                                        {contactContent.form.name[lang]}
+                                    </label>
+                                    <input
+                                        type="text"
+                                        name="name"
+                                        id="name"
+                                        placeholder={contactContent.form.namePlaceholder[lang]}
+                                        required
+                                        value={name}
+                                        onChange={(event) => setName(event.target.value)}
+                                        className="w-full rounded-lg border border-zinc-200 bg-white px-3.5 py-3 text-sm text-zinc-900 outline-none transition-colors placeholder:text-zinc-400 focus:border-violet-500 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:placeholder:text-zinc-500"
+                                    />
+                                </div>
+                                <div>
+                                    <label htmlFor="email" className="mb-1.5 block text-xs font-semibold uppercase tracking-wide text-zinc-700 dark:text-zinc-300">
+                                        {contactContent.form.email[lang]}
+                                    </label>
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        id="email"
+                                        placeholder={contactContent.form.emailPlaceholder[lang]}
+                                        required
+                                        value={email}
+                                        onChange={(event) => setEmail(event.target.value)}
+                                        className="w-full rounded-lg border border-zinc-200 bg-white px-3.5 py-3 text-sm text-zinc-900 outline-none transition-colors placeholder:text-zinc-400 focus:border-violet-500 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:placeholder:text-zinc-500"
+                                    />
+                                </div>
                             </div>
                             <div>
-                                <label htmlFor="email" className="mb-1.5 block text-xs font-semibold uppercase tracking-wide text-zinc-700 dark:text-zinc-300">
-                                    {contactContent.form.email[lang]}
+                                <label htmlFor="message" className="mb-1.5 block text-xs font-semibold uppercase tracking-wide text-zinc-700 dark:text-zinc-300">
+                                    {contactContent.form.message[lang]}
                                 </label>
-                                <input
-                                    type="email"
-                                    name="email"
-                                    id="email"
-                                    placeholder={contactContent.form.emailPlaceholder[lang]}
+                                <textarea
+                                    name="message"
+                                    id="message"
                                     required
-                                    value={email}
-                                    onChange={(event) => setEmail(event.target.value)}
-                                    className="w-full rounded-lg border border-zinc-200 bg-white px-3.5 py-3 text-sm text-zinc-900 outline-none transition-colors placeholder:text-zinc-400 focus:border-violet-500 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:placeholder:text-zinc-500"
+                                    rows={5}
+                                    placeholder={contactContent.form.messagePlaceholder[lang]}
+                                    onChange={(event) => setMessage(event.target.value)}
+                                    value={message}
+                                    className="w-full resize-y rounded-lg border border-zinc-200 bg-white px-3.5 py-3 text-sm text-zinc-900 outline-none transition-colors placeholder:text-zinc-400 focus:border-violet-500 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:placeholder:text-zinc-500"
                                 />
                             </div>
-                        </div>
-                        <div>
-                            <label htmlFor="message" className="mb-1.5 block text-xs font-semibold uppercase tracking-wide text-zinc-700 dark:text-zinc-300">
-                                {contactContent.form.message[lang]}
-                            </label>
-                            <textarea
-                                name="message"
-                                id="message"
-                                required
-                                rows={5}
-                                placeholder={contactContent.form.messagePlaceholder[lang]}
-                                onChange={(event) => setMessage(event.target.value)}
-                                value={message}
-                                className="w-full resize-y rounded-lg border border-zinc-200 bg-white px-3.5 py-3 text-sm text-zinc-900 outline-none transition-colors placeholder:text-zinc-400 focus:border-violet-500 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:placeholder:text-zinc-500"
-                            />
-                        </div>
-                        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                            <p aria-live="polite" className={`text-xs ${status === "success" ? "text-emerald-600 dark:text-emerald-400" : "text-red-600 dark:text-red-400"}`}>
-                                {status === "success" && contactContent.form.success[lang]}
-                                {status === "error" && contactContent.form.error[lang]}
-                            </p>
-                            <button
-                                type="submit"
-                                disabled={status === "loading"}
-                                className="group inline-flex items-center justify-center gap-2 rounded-full bg-zinc-950 px-4 py-2.5 text-sm font-semibold text-white transition-all hover:scale-[1.02] hover:bg-zinc-800 disabled:cursor-wait disabled:opacity-60 dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-200"
-                            >
-                                {status === "loading" ? contactContent.form.sending[lang] : contactContent.form.submit[lang]}
-                                <ArrowUpRight size={15} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                            </button>
-                        </div>
+                            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                                <button
+                                    type="submit"
+                                    disabled={status === "loading"}
+                                    className="cursor-pointer group inline-flex items-center justify-center gap-2 rounded-full bg-zinc-950 px-4 py-2.5 text-sm font-semibold text-white transition-all hover:scale-[1.02] hover:bg-zinc-800 disabled:cursor-wait disabled:opacity-60 dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-200"
+                                >
+                                    {status === "loading" ? contactContent.form.sending[lang] : contactContent.form.submit[lang]}
+                                    <ArrowUpRight size={15} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                                </button>
+                            </div>
+                        </form>
                     </ScrollReveal>
                 </div>
             </div>
