@@ -105,3 +105,22 @@ body {
 .animate-slide-up {
   animation: slideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
+
+.scroll-reveal.animate-slide-left,
+.scroll-reveal.animate-slide-right,
+.scroll-reveal.animate-slide-up {
+  animation: none;
+  opacity: 0;
+}
+
+.scroll-reveal.is-visible.animate-slide-left {
+  animation: slideLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.scroll-reveal.is-visible.animate-slide-right {
+  animation: slideRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.scroll-reveal.is-visible.animate-slide-up {
+  animation: slideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}

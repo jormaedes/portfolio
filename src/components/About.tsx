@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { portfolio } from "@/app/data/portfolio";
 import Link from "next/link";
+import ScrollReveal from "./ScrollReveal";
 
 function GithubIcon({ className = "w-4 h-4" }: { className?: string }) {
     return (
@@ -150,6 +151,7 @@ export default function AboutSection() {
                 {/* -------------------------------------------------------------
                     CARD CONTAINER PRINCIPAL
                     ------------------------------------------------------------- */}
+                <ScrollReveal className="animate-slide-up">
                 <div className="relative rounded-lg sm:rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/80 dark:bg-zinc-900/50 backdrop-blur-xl p-6 sm:p-10 lg:p-12 shadow-xl shadow-violet-950/5 dark:shadow-violet-950/20">
                     {/* Linha Superior: Badge e Tagline */}
                     <div className="flex items-center justify-between gap-4 mb-6 sm:mb-8">
@@ -389,6 +391,7 @@ export default function AboutSection() {
                         </div>
                     </div>
                 </div>
+                </ScrollReveal>
             </div>
         </section>
     );

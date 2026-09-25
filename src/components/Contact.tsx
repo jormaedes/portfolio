@@ -5,6 +5,7 @@ import useLangStore from "@/app/store/lang";
 import { FormEvent, useState } from "react";
 import { sendContactMessage } from "@/actions/contact";
 import { ArrowUpRight, Mail } from "lucide-react";
+import ScrollReveal from "./ScrollReveal";
 
 
 const contactContent = {
@@ -67,7 +68,7 @@ async function handleSubmit(event: FormEvent<HTMLFormElement>) {
             <div className="container mx-auto max-w-6xl">
                 <h2 id="contact"> {contactContent.title[lang]} </h2>
                 <div className="mt-10 grid gap-8 border-t border-zinc-200/80 pt-8 dark:border-zinc-800/80 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
-                    <div className="animate-slide-left">
+                    <ScrollReveal className="animate-slide-left">
                         <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-violet-500/10 text-violet-600 dark:bg-violet-500/15 dark:text-violet-400">
                             <Mail size={21} />
                         </div>
@@ -84,9 +85,9 @@ async function handleSubmit(event: FormEvent<HTMLFormElement>) {
                             {portfolio.socialLinks.email}
                             <ArrowUpRight size={15} />
                         </a>
-                    </div>
+                    </ScrollReveal>
 
-                    <form onSubmit={handleSubmit} className="animate-slide-right space-y-4 rounded-xl border border-zinc-200/80 bg-zinc-50/70 p-5 dark:border-zinc-800/80 dark:bg-zinc-800/40 sm:p-6">
+                    <ScrollReveal className="animate-slide-right space-y-4 rounded-xl border border-zinc-200/80 bg-zinc-50/70 p-5 dark:border-zinc-800/80 dark:bg-zinc-800/40 sm:p-6">
                         <div className="grid gap-4 sm:grid-cols-2">
                             <div>
                                 <label htmlFor="name" className="mb-1.5 block text-xs font-semibold uppercase tracking-wide text-zinc-700 dark:text-zinc-300">
@@ -148,7 +149,7 @@ async function handleSubmit(event: FormEvent<HTMLFormElement>) {
                                 <ArrowUpRight size={15} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                             </button>
                         </div>
-                    </form>
+                    </ScrollReveal>
                 </div>
             </div>
         </section>
