@@ -109,6 +109,24 @@ export const portfolio: Portfolio = {
 
     projects: [
         {
+            slug: "wheres-waldo",
+            featured: false,
+            name: {
+                pt: "Onde está o Wally?",
+                en: "Where's Waldo?",
+            },
+            description: {
+                pt: "Jogo de encontrar personagens escondidos em imagens, com coordenadas de clique normalizadas para funcionar em qualquer tamanho de ecrã. Backend próprio em TypeScript com Express e Prisma, que valida os cliques e regista os vencedores por nível.",
+                en: "A hidden-character photo-tagging game, with click coordinates normalized to work on any screen size. Custom backend in TypeScript with Express and Prisma, validating clicks and recording winners per level.",
+            },
+            imageSrc: "/projects/whereswaldo.png",
+            stack: ["Next.js", "TypeScript", "Tailwind CSS", "Express", "Prisma"],
+            links: [
+                { label: "Live", url: "https://whereswaldo-frontend.vercel.app/" },
+                { label: "GitHub", url: "https://github.com/jormaedes/whereswaldo-frontend" }
+            ],
+        },
+        {
             slug: "webrtc-video-chat",
             featured: true,
             name: {
