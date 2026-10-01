@@ -37,7 +37,7 @@ export default function HeroSection() {
     const { lang } = useLangStore();
 
     return (
-        <section id="home" className="relative w-full h-screen h-dvh max-h-screen flex flex-col justify-between overflow-hidden bg-white dark:bg-[#0d0d12] transition-colors duration-500 z-0">
+        <section id="home" className="relative w-full lg:min-h-dvh lg:h-dvh lg:max-h-dvh flex flex-col justify-between overflow-x-clip lg:overflow-hidden bg-white dark:bg-[#0d0d12] transition-colors duration-500 z-0">
             <div
                 aria-hidden="true"
                 className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center"
@@ -50,7 +50,7 @@ export default function HeroSection() {
                 className="pointer-events-none absolute inset-x-0 top-0 h-44 sm:h-56 bg-gradient-to-b from-purple-200/30 via-purple-100/10 to-transparent dark:from-purple-950/40 dark:via-purple-950/10 to-transparent z-0"
             />
 
-            <div className="container mx-auto px-4 sm:px-6 relative z-10 flex-1 flex flex-col justify-between pt-20 sm:pt-24 pb-4 sm:pb-6 overflow-hidden">
+            <div className="container mx-auto px-4 sm:px-6 relative z-10 flex flex-col justify-between pt-20 sm:pt-24 pb-4 sm:pb-6 lg:flex-1 lg:overflow-hidden">
                 {/* LINHA SUPERIOR: Badge (Esquerda) e Resumo (Direita) */}
                 <div className="flex items-start justify-between gap-3 z-20">
                     {/* Badge com ponto luminoso pulsante - Anima a partir da esquerda */}
@@ -73,7 +73,7 @@ export default function HeroSection() {
                 </div>
 
                 {/* ÁREA CENTRAL: FOTO DO AUTOR - Anima a partir de baixo */}
-                <div className="relative flex-1 min-h-[220px] w-full flex items-end justify-center z-10 my-1 animate-slide-up [animation-delay:250ms]">
+                <div className="relative h-[30svh] min-h-[190px] max-h-[280px] w-full flex-none flex items-end justify-center z-10 my-1 animate-slide-up [animation-delay:250ms] lg:h-auto lg:min-h-[220px] lg:max-h-none lg:flex-1">
                     <div className="relative w-full max-w-[260px] sm:max-w-[340px] md:max-w-[420px] lg:max-w-[480px] xl:max-w-[540px] h-full flex items-end justify-center">
                         <Image
                             src={HERO_IMAGE}
