@@ -109,6 +109,24 @@ export const portfolio: Portfolio = {
 
     projects: [
         {
+            slug: "messaging-app",
+            featured: false,
+            name: {
+                pt: "Aplicação de Mensagens",
+                en: "Messaging App",
+            },
+            description: {
+                pt: "Aplicação de mensagens em tempo real, com comunicação instantânea entre utilizadores através de Socket.IO. Desenvolvida com frontend e backend separados, integra uma API REST em Node.js, Express e TypeScript, com Prisma ORM, com foco em comunicação em tempo real e arquitetura full stack.",
+                en: "Real-time messaging application enabling instant communication between users through Socket.IO. Built with separate frontend and backend, featuring a REST API powered by Node.js, Express and TypeScript, with Prisma ORM, focusing on real-time communication and full-stack architecture.",
+            },
+            imageSrc: "/projects/messagingapp.png",
+            stack: ["React", "TypeScript", "Node.js", "Express", "Socket.IO", "Prisma", "Next,js", "Tailwind CSS"],
+            links: [
+                { label: "Live", url: "https://messagingapp-five-delta.vercel.app/" },
+                { label: "GitHub", url: "https://github.com/jormaedes/messaging-app-fontend" }
+            ],
+        },
+        {
             slug: "wheres-waldo",
             featured: false,
             name: {
