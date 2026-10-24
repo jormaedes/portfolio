@@ -58,8 +58,6 @@ export default function Header() {
     const navRef = useRef<HTMLUListElement>(null);
     const itemRefs = useRef<(HTMLLIElement | null)[]>([]);
     const [indicator, setIndicator] = useState({ left: 0, width: 0 });
-    const isClickScrollingRef = useRef(false);
-    const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
     const handleNavClick = (
         e: React.MouseEvent<HTMLAnchorElement>,
@@ -68,47 +66,31 @@ export default function Header() {
         e.preventDefault();
         setCurrent(href);
 
-        // Bloqueia temporariamente o scroll spy para evitar conflito de animação ao clicar
-        isClickScrollingRef.current = true;
-        if (scrollTimeoutRef.current) {
-            clearTimeout(scrollTimeoutRef.current);
+        if (window.location.hash) {
+            window.history.replaceState(
+                null,
+                "",
+                `${window.location.pathname}${window.location.search}`
+            );
         }
-        scrollTimeoutRef.current = setTimeout(() => {
-            isClickScrollingRef.current = false;
-        }, 1000);
 
         if (href === "/" || href === "#home") {
             window.scrollTo({ top: 0, behavior: "smooth" });
-            window.history.pushState(null, "", "/");
         } else if (href.startsWith("#")) {
             const targetId = href.replace("#", "");
             const element = document.getElementById(targetId);
             if (element) {
                 element.scrollIntoView({ behavior: "smooth" });
-                window.history.pushState(null, "", href);
             }
         }
     };
 
     useEffect(() => {
-        const updateCurrent = () => {
-            if (isClickScrollingRef.current) return;
-            const hash = window.location.hash;
-            if (hash) {
-                setCurrent(hash);
-            } else if (window.scrollY < 120) {
-                setCurrent("#home");
-            }
-        };
-
         const sectionIds = ["contact", "projects", "services", "about", "home"];
 
         const handleScroll = () => {
             const scrollY = window.scrollY;
             setHasScrolled(scrollY > 8);
-
-            // Se o scroll foi disparado pelo clique do usuário no nav, não interfere no indicador
-            if (isClickScrollingRef.current) return;
 
             const scrollPos = scrollY + 220;
             if (scrollY < 120) {
@@ -128,16 +110,18 @@ export default function Header() {
             }
         };
 
-        updateCurrent();
-        window.addEventListener("hashchange", updateCurrent);
+        if (window.location.hash) {
+            window.history.replaceState(
+                null,
+                "",
+                `${window.location.pathname}${window.location.search}`
+            );
+        }
+        handleScroll();
         window.addEventListener("scroll", handleScroll, { passive: true });
 
         return () => {
-            window.removeEventListener("hashchange", updateCurrent);
             window.removeEventListener("scroll", handleScroll);
-            if (scrollTimeoutRef.current) {
-                clearTimeout(scrollTimeoutRef.current);
-            }
         };
     }, []);
 
