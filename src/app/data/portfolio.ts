@@ -35,12 +35,12 @@ export type SocialLinks = {
 };
 
 export type Experience = {
-    title: string;
-    description: string;
-    company: string;
-    period: string;
-    location?: string;
-    responsabilities?: string[];
+    title: Localized;
+    description: Localized;
+    company: Localized;
+    period: Localized;
+    location?: Localized;
+    responsibilities?: Localized[];
 };
 
 export type Portfolio = {
@@ -64,7 +64,7 @@ export const portfolio: Portfolio = {
         en: "I'm a junior full stack developer based in Luanda, Angola. I study Computer Science at Universidade Katyavala Bwila and programming at 42 Luanda, where I focus on systems programming in C and C++. Alongside that, I follow The Odin Project's Full Stack JavaScript curriculum, building complete applications with Node.js, PostgreSQL, React and Next.js. I have professional frontend experience at Hidrotap and I'm looking for opportunities, local or remote, to grow within a development team.",
     },
 
-    yearsOfExperience: 3,
+    yearsOfExperience: 4,
 
     socialLinks: {
         github: "https://github.com/jormaedes",
@@ -320,26 +320,26 @@ export const portfolio: Portfolio = {
     ],
     experiences: [
         {
-            title: "Desenvolvedor frontend",
-            company: "Hidrotap - Freelance",
-            description: "Pagina oficial da empresa Hidrotap",
-            period: "Maio de 2026 - Junho de 2026",
-            location: "Luanda, Angola",
-            responsabilities: [
-                "Desenvolvi e optimizei interfaces web responsivas utilizando HTML5, CSS3, JavaScript e React.",
-                "Implementei funcionalidades de frontend com atenção à usabilidade, à consistência visual e à experiência do utilizador.",
-                "Colaborei na integração de funcionalidades e no cumprimento dos prazos de desenvolvimento.",
-                "Contribuí para a melhoria das interfaces e para a implementação de soluções alinhadas com os requisitos do projecto.",
+            title: { pt: "Desenvolvedor frontend", en: "Frontend Developer" },
+            company: { pt: "Hidrotap - Freelance", en: "Hidrotap - Freelance" },
+            description: { pt: "Página oficial da empresa Hidrotap", en: "Official website for Hidrotap" },
+            period: { pt: "Maio de 2026 - Junho de 2026", en: "May 2026 - June 2026" },
+            location: { pt: "Luanda, Angola", en: "Luanda, Angola" },
+            responsibilities: [
+                { pt: "Desenvolvi e otimizei interfaces web responsivas utilizando HTML5, CSS3, JavaScript e React.", en: "Developed and optimized responsive web interfaces using HTML5, CSS3, JavaScript and React." },
+                { pt: "Implementei funcionalidades de frontend com atenção à usabilidade, à consistência visual e à experiência do utilizador.", en: "Implemented frontend features with attention to usability, visual consistency and user experience." },
+                { pt: "Colaborei na integração de funcionalidades e no cumprimento dos prazos de desenvolvimento.", en: "Collaborated on feature integration and meeting development deadlines." },
+                { pt: "Contribuí para a melhoria das interfaces e para a implementação de soluções alinhadas com os requisitos do projecto.", en: "Contributed to improving interfaces and implementing solutions aligned with project requirements." },
             ]
         },
         {
-            title: "Desenvolvedor frontend",
-            company: "Ecoder - Freelance",
-            description: "Software web de Gestão e Controle de Vendas de Recargas Eletrónicas para a empresa Ecoder, facilitando o controle das vendas, dividas de clientes e o relatório das vendas de um determinado tempo.",
-            period: "Abril de 2022 - Julho de 2022",
-            location: "Benguela, Angola",
-            responsabilities: [
-                "Responsável por desenvolvedor o Frontend."
+            title: { pt: "Desenvolvedor frontend", en: "Frontend Developer" },
+            company: { pt: "Ecoder - Freelance", en: "Ecoder - Freelance" },
+            description: { pt: "Software web de gestão e controlo de vendas de recargas eletrónicas para a Ecoder, facilitando o controlo das vendas, dívidas de clientes e relatórios por período.", en: "Web software for managing electronic recharge sales at Ecoder, making it easier to track sales, customer debts and reports by period." },
+            period: { pt: "Abril de 2022 - Julho de 2022", en: "April 2022 - July 2022" },
+            location: { pt: "Benguela, Angola", en: "Benguela, Angola" },
+            responsibilities: [
+                { pt: "Responsável pelo desenvolvimento do frontend.", en: "Responsible for frontend development." }
             ]
         },
     ]
