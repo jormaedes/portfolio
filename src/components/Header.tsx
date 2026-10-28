@@ -6,7 +6,7 @@ import ThemeToggleButton from "./ToggleThemeButton";
 import { portfolio } from "@/app/data/portfolio";
 import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
-import { Home, User, Briefcase, CodeXml, Mail } from "lucide-react";
+import { Home, User, Briefcase, CodeXml, Mail, History } from "lucide-react";
 
 const navLinks = [
     {
@@ -32,6 +32,14 @@ const navLinks = [
         },
         href: "#services",
         icon: Briefcase,
+    },
+    {
+        name: {
+            pt: "Experiências",
+            en: "Experience",
+        },
+        href: "#experiences",
+        icon: History,
     },
     {
         name: {
@@ -86,7 +94,7 @@ export default function Header() {
     };
 
     useEffect(() => {
-        const sectionIds = ["contact", "projects", "services", "about", "home"];
+        const sectionIds = ["contact", "projects", "experiences", "services", "about", "home"];
 
         const handleScroll = () => {
             const scrollY = window.scrollY;

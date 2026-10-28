@@ -30,6 +30,13 @@ const navLinks = [
     },
     {
         name: {
+            pt: "Experiências",
+            en: "Experience",
+        },
+        href: "#experiences",
+    },
+    {
+        name: {
             pt: "Projetos",
             en: "Projects",
         },
