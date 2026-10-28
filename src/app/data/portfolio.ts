@@ -34,12 +34,22 @@ export type SocialLinks = {
     discord: string;
 };
 
+export type Experience = {
+    title: string;
+    description: string;
+    company: string;
+    period: string;
+    location?: string;
+    responsabilities?: string[];
+};
+
 export type Portfolio = {
     name: string;
     aboutMe: Localized;
     yearsOfExperience: number;
     socialLinks: SocialLinks;
     services: Service[];
+    experiences?: Experience[];
     projects: Project[];
     technologies: Technology[];
 };
@@ -308,4 +318,29 @@ export const portfolio: Portfolio = {
         { name: "Git", icon: devicon("git") },
         { name: "GitHub", icon: devicon("github") },
     ],
+    experiences: [
+        {
+            title: "Desenvolvedor frontend",
+            company: "Hidrotap - Freelance",
+            description: "Pagina oficial da empresa Hidrotap",
+            period: "Maio de 2026 - Junho de 2026",
+            location: "Luanda, Angola",
+            responsabilities: [
+                "Desenvolvi e optimizei interfaces web responsivas utilizando HTML5, CSS3, JavaScript e React.",
+                "Implementei funcionalidades de frontend com atenção à usabilidade, à consistência visual e à experiência do utilizador.",
+                "Colaborei na integração de funcionalidades e no cumprimento dos prazos de desenvolvimento.",
+                "Contribuí para a melhoria das interfaces e para a implementação de soluções alinhadas com os requisitos do projecto.",
+            ]
+        },
+        {
+            title: "Desenvolvedor frontend",
+            company: "Ecoder - Freelance",
+            description: "Software web de Gestão e Controle de Vendas de Recargas Eletrónicas para a empresa Ecoder, facilitando o controle das vendas, dividas de clientes e o relatório das vendas de um determinado tempo.",
+            period: "Abril de 2022 - Julho de 2022",
+            location: "Benguela, Angola",
+            responsabilities: [
+                "Responsável por desenvolvedor o Frontend."
+            ]
+        },
+    ]
 };
